@@ -11,7 +11,7 @@ const pyexcel_ods = PyNULL()
 function __init__()
     p = pyimport("pip._internal")
     #@pyimport pip._internal as p
-    p.main(["install","pyexcel-ods"])
+    p[:main](["install","pyexcel-ods"])
     #copy!(pyexcel_io, pyimport_conda("pyexcel-io", "pyexcel-io"))
     #copy!(pyexcel_ods, pyimport_conda("pyexcel-ods", "pyexcel-ods"))
 end
