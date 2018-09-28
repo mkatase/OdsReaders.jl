@@ -31,6 +31,7 @@ v1.x> pkg> test PyCall
 julia> using Pkg
 julia> Pkg.add("https://github.com/mkatase/OdsReaders.jl.git")
 julia> Pkg.test("OdsReaders")
+...
    Testing OdsReaders
  Resolving package versions...
 FileNotFound.ods : file not found
@@ -40,20 +41,33 @@ OdsReaders    |   39     39
    Testing OdsReaders tests passed 
 ```
 
+or
+
+```julia
+(v1.x) pkg> add https://github.com/mkatase/OdsReaders.jl.git
+  Updating registry at `~/.julia/registries/General`
+...
+  [d106bba2] + OdsReaders v0.1.0 #master (https://github.com/mkatase/OdsReaders.jl.git)
+
+(v1.x) pkg> activate .
+
+(OdsReaders) pkg> test
+   Testing OdsReaders
+ Resolving package versions...
+FileNotFound.ods : file not found
+Sheet3 : sheet not found
+Test Summary: | Pass  Total
+OdsReaders    |   39     39
+   Testing OdsReaders tests passed 
+
+(OdsReaders) pkg> 
+```
+
 ## How to use OdsReaders package in Julia
 
 At first, set up to use OdsReaders package.
 
 ```julia
-v1.x> pkg> add https://github.com/mkatase/OdsReaders.jl.git
-```
-
-or
-
-```julia
-julia> using Pkg
-julia> Pkg.clone("https://github.com/mkatase/OdsReaders.jl")
-...
 julia> using OdsReaders
 ```
 
