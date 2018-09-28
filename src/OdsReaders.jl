@@ -10,6 +10,7 @@ const pyexcel_ods = PyNULL()
 #include("package_documentation.jl")
 
 function __init__()
+    copy!(pyexcel, pyimport_conda("pyexcel", "pyexcel"))
     copy!(pyexcel-ods, pyimport_conda("pyexcel-ods", "pyexcel-ods"))
 end
 
