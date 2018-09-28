@@ -4,14 +4,10 @@ using Test
 
 @testset "OdsReaders" begin
 
-data = openods("FileNotFound.ods")
-@test data == nothing
+# no file check
+@test_throws ArgumentError openods("FileNotFound.ods")
 
 filename = normpath(@__DIR__, "TestData.ods")
-#file = openods(filename)
-#@test filename == "TestData.ods"
-
-
 
 # no sheet check
 @test_throws ArgumentError readsheet(filename, "Sheet3")
