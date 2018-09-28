@@ -14,7 +14,7 @@ filename = normpath(@__DIR__, "TestData.ods")
 
 
 # no sheet check
-@test_throws Errorexception readsheet(filename, "Sheet3")
+@test_throws ErrorException readsheet(filename, "Sheet3")
 #@test readsheet(filename, "Sheet3") == Dict{Any,Any}()
 
 # read sheet1 with header
