@@ -5,10 +5,12 @@ using Printf
 
 export openods, readsheet, getsheets
 
+const pyexcel_io  = PyNULL()
 const pyexcel_ods = PyNULL()
 
 function __init__()
-    copy!(pyexcel_ods, pyimport_conda("pyexcel_ods", "pyexcel_ods"))
+    copy!(pyexcel_io, pyimport_conda("pyexcel-io", "pyexcel-io"))
+    copy!(pyexcel_ods, pyimport_conda("pyexcel-ods", "pyexcel-ods"))
 end
 
 """
