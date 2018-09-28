@@ -7,11 +7,8 @@ export openods, readsheet, getsheets
 
 const pyexcel_ods = PyNULL()
 
-#include("package_documentation.jl")
-
 function __init__()
-    copy!(pyexcel_io, pyimport_conda("pyexcel_io", "pyexcel_io"))
-    copy!(pyexcel-ods, pyimport_conda("pyexcel-ods", "pyexcel-ods"))
+    copy!(pyexcel_ods, pyimport_conda("pyexcel_ods", "pyexcel_ods"))
 end
 
 """
