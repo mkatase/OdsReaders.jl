@@ -45,7 +45,7 @@ function readsheet(filename::AbstractString, shname::AbstractString; args...)
         return conv_args(data[shname]; args...)
     else
         @printf "%s : sheet not found\n" shname
-        return Dict()
+        return error()
     end
 end
 
