@@ -15,21 +15,29 @@ $ pip install pyexcel-ods
 If PyCall pacakge is not installed, ENV["PYTHON"] variable set up, build and test procedure.
 
 ```julia
-v1.1> pkg> ENV["PYTHON"] = "/path/to/bin/python"
-v1.1> pkg> add PyCall
-v1.1> pkg> build PyCall
-v1.1> pkg> test PyCall
+v1.x> pkg> ENV["PYTHON"] = "/path/to/bin/python"
+v1.x> pkg> add PyCall
+v1.x> pkg> build PyCall
+v1.x> pkg> test PyCall
 ...
    Testing PyCall tests passed 
 
-(v1.1) pkg> 
+(v1.x) pkg> 
 ```
 
 ## Install OdsReaders.jl
 
 ```julia
-v1.x> pkg> clone github
-v1.x> pkg> test OdsReaders
+julia> using Pkg
+julia> Pkg.add("https://github.com/mkatase/OdsReaders.jl.git")
+julia> Pkg.test("OdsReaders")
+   Testing OdsReaders
+ Resolving package versions...
+FileNotFound.ods : file not found
+Sheet3 : sheet not found
+Test Summary: | Pass  Total
+OdsReaders    |   39     39
+   Testing OdsReaders tests passed 
 ```
 
 ## How to use OdsReaders package in Julia
@@ -37,7 +45,7 @@ v1.x> pkg> test OdsReaders
 At first, set up to use OdsReaders package.
 
 ```julia
-v1.x> pkg> clone https://github.com/mkatase/OdsReaders.jl.git
+v1.x> pkg> add https://github.com/mkatase/OdsReaders.jl.git
 ```
 
 or

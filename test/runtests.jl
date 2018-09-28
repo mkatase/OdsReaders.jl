@@ -1,8 +1,8 @@
-using TestPackage
+using OdsReaders
 using PyCall
 using Test
 
-@testset "TestPackage" begin
+@testset "OdsReaders" begin
 
 data = openods("FileNotFound.ods")
 @test data == nothing
