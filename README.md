@@ -29,7 +29,7 @@ v1.x> pkg> test PyCall
 
 ```julia
 julia> using Pkg
-julia> Pkg.add("https://github.com/mkatase/OdsReaders.jl.git")
+julia> Pkg.clone("https://github.com/mkatase/OdsReaders.jl.git")
 julia> Pkg.test("OdsReaders")
 ...
    Testing OdsReaders
