@@ -9,8 +9,8 @@ const pyexcel_io  = PyNULL()
 const pyexcel_ods = PyNULL()
 
 function __init__()
-    copy!(pyexcel_io, pyimport("pyexcel-io"))
-    copy!(pyexcel_ods, pyimport("pyexcel-ods"))
+    @pyimport pip
+    pip.main(["install","--user","pyexcel-ods"])
     #copy!(pyexcel_io, pyimport_conda("pyexcel-io", "pyexcel-io"))
     #copy!(pyexcel_ods, pyimport_conda("pyexcel-ods", "pyexcel-ods"))
 end
