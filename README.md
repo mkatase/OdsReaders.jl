@@ -114,3 +114,8 @@ This will return an array data in Filename.ods.
 $ cd example
 $ julia example.jl
 ```
+
+## Thanks
+I'm developing this package based on the following package. Thanks.
+
+* [ExcelReaders.jl](https://github.com/queryverse/ExcelReaders.jl)
