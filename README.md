@@ -1,5 +1,8 @@
 # OdsReaders
 
+[![Build Status](https://travis-ci.org/mkatase/OdsReaders.jl.svg?branch=master)](https://travis-ci.org/mkatase/OdsReaders.jl)
+[![codecov](https://codecov.io/gh/mkatase/OdsReaders.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/mkatase/OdsReaders.jl)
+
 OdsReaders is a package that provides functionality to read OpenDocument Spreadsheet (e.g. LibreOffice Calc) files.
 
 ## Install Python library
