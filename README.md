@@ -34,10 +34,15 @@ julia> Pkg.test("OdsReaders")
 ...
    Testing OdsReaders
  Resolving package versions...
-FileNotFound.ods : file not found
+# sheet check
 Sheet3 : sheet not found
+# reading sheet1 with header
+# reading sheet1 without header
+# reading sheet2 with header
+# reading sheet4 with header
+# num. of sheets
 Test Summary: | Pass  Total
-OdsReaders    |   39     39
+OdsReaders    |   38     38
    Testing OdsReaders tests passed 
 ```
 
@@ -54,10 +59,15 @@ or
 (OdsReaders) pkg> test
    Testing OdsReaders
  Resolving package versions...
-FileNotFound.ods : file not found
+# sheet check
 Sheet3 : sheet not found
+# reading sheet1 with header
+# reading sheet1 without header
+# reading sheet2 with header
+# reading sheet4 with header
+# num. of sheets
 Test Summary: | Pass  Total
-OdsReaders    |   39     39
+OdsReaders    |   38     38
    Testing OdsReaders tests passed 
 
 (OdsReaders) pkg> 
