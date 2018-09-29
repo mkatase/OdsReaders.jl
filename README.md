@@ -102,10 +102,10 @@ julia> data = readsheet("Filename.ods", "Sheet1")
 This will return an array data with *Sheet1* sheet in Filename.ods.
 If no sheet, return empty array.
 
-## Reading a specific sheet skipping first cols
+## Reading a specific sheet skipping first row
 
-First column is used header in many cases.
-For skipping first column is:
+First row is used header in many cases.
+For skipping first row is:
 
 ```julia
 julia> data = readsheet("Filename.ods", "Sheet1" ; header=true)
