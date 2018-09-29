@@ -5,16 +5,18 @@ using Test
 @testset "OdsReaders" begin
 
 # no file check
-@test_throws ArgumentError openods("FileNotFound.ods")
+#@test_throws ArgumentError openods("FileNotFound.ods")
 
 filename = normpath(@__DIR__, "TestData.ods")
 
 # no sheet check
-@test_throws ArgumentError readsheet(filename, "Sheet3")
-#@test readsheet(filename, "Sheet3") == Dict{Any,Any}()
+println("# sheet check")
+@test_throws ErrorException readsheet(filename, "Sheet3")
 
 # read sheet1 with header
+println("# reading sheet1 with header")
 data = readsheet(filename, "Sheet1")
+
 @test typeof(data) == Array{Any, 2}
 @test size(data) == (9, 2)
 @test data[1, 1] == "#X"
@@ -27,6 +29,7 @@ data = readsheet(filename, "Sheet1")
 @test data[9, 2] == 20
 
 # read sheet1 without header
+println("# reading sheet1 without header")
 data = readsheet(filename, "Sheet1"; header=false)
 @test typeof(data) == Array{Any, 2}
 @test size(data) == (8, 2)
@@ -36,6 +39,7 @@ data = readsheet(filename, "Sheet1"; header=false)
 @test data[8, 2] == 20
 
 # read sheet2 with header
+println("# reading sheet2 with header")
 data = readsheet(filename, "Sheet2")
 @test typeof(data) == Array{Any, 2}
 @test size(data) == (11, 2)
@@ -47,6 +51,7 @@ data = readsheet(filename, "Sheet2")
 @test data[11, 2] == 133
 
 # read sheet4 with header
+println("# reading sheet4 with header")
 data = readsheet(filename, "Sheet4")
 @test typeof(data) == Array{Array{T,1} where T,1}
 @test size(data) == (7,)
@@ -60,6 +65,7 @@ data = readsheet(filename, "Sheet4")
 @test length(data[5]) == 0
 
 # check getsheets function
+println("# num. of sheets")
 data = getsheets(filename)
 @test typeof(data) == Array{String,1}
 @test length(data) == 3

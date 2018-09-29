@@ -5,18 +5,17 @@ using Printf
 
 export openods, readsheet, getsheets
 
-const pyexcel_io  = PyNULL()
-const pyexcel_ods = PyNULL()
+const py_pip = PyNULL()
+const py_ods = PyNULL()
 
 function __init__()
     u = pyimport("importlib.util")
-    if u[:find_spec]("pyexcel-ods") == nothing
-        p = pyimport("pip._internal")
-        p[:main](["install","pyexcel-ods"])
+    if u[:find_spec]("pyexcel_ods") == nothing
+        py_pip = pyimport("pip._internal")
+        py_pip[:main](["install","pyexcel-ods"])
         #@pyimport pip._internal as p
     end
-    #copy!(pyexcel_io, pyimport_conda("pyexcel-io", "pyexcel-io"))
-    #copy!(pyexcel_ods, pyimport_conda("pyexcel-ods", "pyexcel-ods"))
+    copy!(py_ods, pyimport("pyexcel_ods"))
 end
 
 """
@@ -29,10 +28,9 @@ end
 """
 function openods(filename::AbstractString)
     if !isfile(filename)
-        println("$filename : file not found")
-        return nothing
+        error("$filename : file not found")
     else
-        return pyexcel_ods[:get_data](filename)
+        return py_ods[:get_data](filename)
     end
 end
 
