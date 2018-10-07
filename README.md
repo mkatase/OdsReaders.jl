@@ -38,17 +38,7 @@ julia> Pkg.test("OdsReaders")
    Testing OdsReaders
  Resolving package versions...
 # sheet check
-Sheet3 : sheet not found
-# reading sheet1 with header
-# reading sheet1 without header
-# reading sheet2 with header
-# reading sheet4 with header
-# num. of sheets
-# search number 2 in ods file
-# search string Z in ods file
-# search number 36 in Sheet2
-# search string Z in Sheet2
-# search number 2 in Sheet4
+...
 # search string Z in Sheet4
 Test Summary: | Pass  Total
 OdsReaders    |   53     53
@@ -69,14 +59,10 @@ or
    Testing OdsReaders
  Resolving package versions...
 # sheet check
-Sheet3 : sheet not found
-# reading sheet1 with header
-# reading sheet1 without header
-# reading sheet2 with header
-# reading sheet4 with header
-# num. of sheets
+...
+# search string Z in Sheet4
 Test Summary: | Pass  Total
-OdsReaders    |   38     38
+OdsReaders    |   53     53
    Testing OdsReaders tests passed 
 
 (OdsReaders) pkg> 
