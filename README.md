@@ -44,8 +44,14 @@ Sheet3 : sheet not found
 # reading sheet2 with header
 # reading sheet4 with header
 # num. of sheets
+# search number 2 in ods file
+# search string Z in ods file
+# search number 36 in Sheet2
+# search string Z in Sheet2
+# search number 2 in Sheet4
+# search string Z in Sheet4
 Test Summary: | Pass  Total
-OdsReaders    |   38     38
+OdsReaders    |   53     53
    Testing OdsReaders tests passed 
 ```
 
@@ -118,6 +124,20 @@ julia> lists = getsheets("Filename.ods")
 ```
 
 This will return an array data in Filename.ods.
+
+## Searching number or string in file
+
+```julia
+julia> dict = searchods("Filename.ods", 4)    # seach 4 (integer)
+julia> dict = searchods("Filename.ods", "X")  # seach X (string)
+```
+
+## Searching number or string in a specific sheet
+
+```julia
+julia> dict = searchsheet("Filename.ods", "Sheet1", 5)   # search 5 in Sheet1
+julia> dict = searchsheet("Filename.ods", "Sheet2", "X") # search X in Sheet2
+```
 
 ## For example
 

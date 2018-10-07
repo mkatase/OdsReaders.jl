@@ -4,6 +4,7 @@ using PyCall
 using Printf
 
 export openods, readsheet, getsheets
+export searchods, searchsheet
 
 const py_pip = PyNULL()
 const py_ods = PyNULL()
@@ -79,6 +80,56 @@ end
 function getsheets(filename::AbstractString)
     data = openods(filename)
     return [ k for (k,v) in data]
+end
+
+"""
+    search string function in ods file (All Sheets)
+
+    retrun search string dictionary of data
+    key is sheet name, value is list of tuple(row, col)
+
+"""
+function searchods(filename::AbstractString, target)
+    D = Dict() # Initilization
+    for (k,v) in openods(filename)
+        D = merge(D, searchdata(k, v, target))
+    end
+    D 
+end
+
+"""
+    search string function in a sheet
+
+    retrun search string dictionary of data
+    key is sheet name, value is list of tuple(row, col)
+"""
+function searchsheet(filename::AbstractString, shname::AbstractString, target)
+   d = readsheet(filename, shname)
+   searchdata(shname, d, target) 
+end
+
+"""
+    internal function of searching row and col value 
+"""
+function searchdata(key, val, m)
+    D = Dict()
+    if length(size(val)) == 1
+        # lack of data matrix
+        for i in 1:length(val)
+            o = findall(x->x==m, val[i])
+            if length(o) != 0
+                get!(D, key, [])
+                append!(D[key], [ (i,j) for j in o ])
+            end
+        end
+    else
+        # full data matrix
+        o = findall(x->x==m, val)
+        if length(o) != 0
+            D[key] = o
+        end
+    end
+    D
 end
 
 end # module

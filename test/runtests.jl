@@ -54,7 +54,7 @@ data = readsheet(filename, "Sheet2")
 println("# reading sheet4 with header")
 data = readsheet(filename, "Sheet4")
 @test typeof(data) == Array{Array{T,1} where T,1}
-@test size(data) == (7,)
+@test size(data) == (10,)
 @test length(data[3]) == 3
 @test data[3][1] == ""
 @test data[3][2] ==  9
@@ -71,4 +71,35 @@ data = getsheets(filename)
 @test length(data) == 3
 @test data[3] == "Sheet4"
 
+# check searchods function
+println("# search number 2 in ods file")
+data = searchods(filename, 2)
+@test length(data["Sheet1"]) == 2
+@test data["Sheet1"][1]==CartesianIndex(3,1)
+@test data["Sheet1"][2][1]==2
+@test data["Sheet1"][2][2]==2
+println("# search string Z in ods file")
+data = searchods(filename, "Z")
+@test length(data) == 0
+
+# check searchsheet function
+println("# search number 36 in Sheet2")
+data = searchsheet(filename, "Sheet2", 36)
+@test data["Sheet2"][1]==CartesianIndex(7,2)
+println("# search string Z in Sheet2")
+data = searchsheet(filename, "Sheet2", "Z")
+@test length(data) == 0
+println("# search number 2 in Sheet4")
+data = searchsheet(filename, "Sheet4", 2)
+@test length(data["Sheet4"]) == 3
+@test data["Sheet4"][1][1]==9
+@test data["Sheet4"][1][2]==1
+@test data["Sheet4"][2][1]==9
+@test data["Sheet4"][2][2]==2
+@test data["Sheet4"][3][1]==10
+@test data["Sheet4"][3][2]==4
+println("# search string Z in Sheet4")
+data = searchsheet(filename, "Sheet4", "Z")
+@test length(data) == 0
+#
 end
