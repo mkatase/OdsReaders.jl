@@ -5,6 +5,12 @@
 
 OdsReaders is a package that provides functionality to read OpenDocument Spreadsheet (e.g. LibreOffice Calc) files.
 
+## Environment
+
+* Fedora 31 **5.3.7-301**
+* Julia **1.2**
+* PyCall **v1.91.2**
+
 ## Install Python library
 
 The package uses the Python pyexcel-ods library. If this library is not installed on using Python, please install by pip command.
@@ -51,7 +57,7 @@ or
 (v1.x) pkg> add https://github.com/mkatase/OdsReaders.jl.git
   Updating registry at `~/.julia/registries/General`
 ...
-  [d106bba2] + OdsReaders v0.1.0 #master (https://github.com/mkatase/OdsReaders.jl.git)
+  [d106bba2] + OdsReaders v0.2.0 #master (https://github.com/mkatase/OdsReaders.jl.git)
 
 (v1.x) pkg> activate .
 

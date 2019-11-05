@@ -31,7 +31,7 @@ function openods(filename::AbstractString)
     if !isfile(filename)
         error("$filename : file not found")
     else
-        return py_ods[:get_data](filename)
+        return py_ods.get_data(filename)
     end
 end
 
